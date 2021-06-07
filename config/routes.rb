@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :feelings, except [:destroy] do
+  resources :feelings, except: [:destroy] do
     collection do
       get :results
     end
