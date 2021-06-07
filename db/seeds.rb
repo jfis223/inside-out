@@ -5,27 +5,29 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Feeling.delete_all
+
+User.delete_all
+
+joaquin = User.create!(name: 'joaquin', email: 'email@gmail.com', password: 'password')
 
 puts "Drowning your feelings away..."
-Feeling.delete_all
+
 
 puts "Making a real boy out of Pinocchio..."
 
-feelings = %w[happiness admitation luck anger serenity lust love disappointment jealousy strength motivation charmness amusement optimism gratitude desparation enthusiasm]
-
-description = Faker::Quote.jack_handey
-
-categories = %w[positive negative empowering vengeful rare]
-
-image = 'https://source.unsplash.com/random'
-
-price = rand(100..900)
-
-availability = true
-
 30.times do
-  feeling = Feeling.new(title: feelings.sample, description: description, image: image, availability: availability, category: categories.sample, price: price)
-  feeling.save
+  feelings = %w[happiness admitation luck anger serenity lust love disappointment jealousy strength motivation charmness amusement optimism gratitude desparation enthusiasm]
+
+  description = Faker::Quote.jack_handey
+
+  categories = %w[positive negative empowering vengeful rare]
+
+  price = rand(100..900)
+
+  availability = true
+
+  Feeling.create!(title: feelings.sample, description: description, availibility: availability, category: categories.sample, price: price, user: joaquin)
 end
 
 puts 'You can feel again'
