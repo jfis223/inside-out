@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :feelings, except [:destroy] do
+    collection do
+      get :results
+    end
+  end
   devise_for :users
   root to: 'pages#home'
 
