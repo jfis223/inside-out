@@ -6,7 +6,7 @@ class CreateBookings < ActiveRecord::Migration[6.0]
       t.integer :total_price
       t.references :feeling, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
-      t.boolean :acceptance
+      t.boolean :acceptance, default: false
 
       t.timestamps
     end
