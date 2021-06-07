@@ -3,7 +3,6 @@ class CreateFeelings < ActiveRecord::Migration[6.0]
     create_table :feelings do |t|
       t.string :title
       t.text :description
-      t.string :image
       t.boolean :availibility
       t.string :category
       t.integer :price
