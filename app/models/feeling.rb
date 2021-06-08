@@ -5,3 +5,4 @@ class Feeling < ApplicationRecord
   validates :category, inclusion: { in: CATEGORIES}
   has_one_attached :image
 end
+
