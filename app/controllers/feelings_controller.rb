@@ -18,6 +18,7 @@ class FeelingsController < ApplicationController
       redirect_to @feeling, notice: 'Your new feeling has been created!'
     else
       render :new
+    end
   end
 
   def edit
