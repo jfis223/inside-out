@@ -1,0 +1,39 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 54px;
+  padding: 13px;
+}
+
+
+.card-product img {
+  height: 40%;
+  width: 40%;
+  object-fit: cover;
+}
+
+.card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-infos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 16px;
+}
+
+.cards a
+{
+ text-decoration:none;
+}
+

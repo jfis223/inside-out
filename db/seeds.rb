@@ -16,7 +16,7 @@ puts "Drowning your feelings away..."
 
 puts "Making a real boy out of Pinocchio..."
 
-30.times do
+10.times do
   feelings = %w[happiness admitation luck anger serenity lust love disappointment jealousy strength motivation charmness amusement optimism gratitude desparation enthusiasm]
 
   description = Faker::Quote.jack_handey

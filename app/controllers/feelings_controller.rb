@@ -14,8 +14,9 @@ class FeelingsController < ApplicationController
 
   def create
     @feeling = Feeling.new(feeling_params)
+    @feeling.user = current_user
     if @feeling.save
-      redirect_to @feeling, notice: 'Your new feeling has been created!'
+      redirect_to feeling_path(@feeling), notice: 'Your new feeling has been created!'
     else
       render :new
     end
