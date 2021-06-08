@@ -1,2 +1,10 @@
-<h1>Feelings#new</h1>
-<p>Find me in app/views/feelings/new.html.erb</p>
+<h1>Sell a feeling</h1>
+
+<%= simple_form_for (@feeling)do |f| %>
+<%= f.input :title, placeholder: 'Title' %>
+<%= f.input :category, collection: Feeling::CATEGORIES %>
+<%= f.input :description, placeholder: 'Description' %>
+<%= f.input :price, placeholder: 'Price' %>
+<%= f.input :image, as: :file %>
+<%= f.submit class: 'btn btn-primary' %>
+<% end %>

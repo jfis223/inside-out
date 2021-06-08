@@ -18,6 +18,7 @@ class FeelingsController < ApplicationController
       redirect_to @feeling, notice: 'Your new feeling has been created!'
     else
       render :new
+    end
   end
 
   def edit
@@ -38,7 +39,7 @@ def set_task
 end
 
 def feeling_params
-  params.require(:feeling).permit(:title, :description, :image, :availability, :category, :price)
+  params.require(:feeling).permit(:title, :description, :image, :category, :price)
 end
 
 end
