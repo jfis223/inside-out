@@ -1,30 +1,22 @@
-<div class="container flex-column">
-<h1 class="d-flex justify-content-center" >Feelings</h1>
-
+<%= render './partials/feelings-banner' %>
+<div class="ml-3 mr-3">
 <div class="cards">
   <% @feelings.each do |feeling| %>
     <div class="card-product">
       <%= link_to feeling_path(feeling) do %>
         <div class="card card-feeling">
         <% if feeling.image.attached? %>
-          <%= cl_image_tag feeling.image.key %>
+        <%= cl_image_tag feeling.image.key %>
         <% else %>
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
         <% end %>
-        <div class="card-product-infos">
-          <h2><%= feeling.title %></h2>
-          <p><%= feeling.category %></p>
-          <p><%= feeling.price %> €</p>
+        <div class="card-info p-3">
+          <h2><%= feeling.title.capitalize %></h2>
+          <p><small>Emotion Category:</small> <%= feeling.category.capitalize %></p>
+          <p style="text-align: right"><%= feeling.price %> €</p>
         </div>
         </div>
       <% end %>
       </div>
       <% end %>
     </div>
-
-
-
-<div class="d-flex justify-content-center">
-<%= link_to 'Sell a feeling', new_feeling_path, class: "btn btn-outline-primary" %>
- </div>
- </div>

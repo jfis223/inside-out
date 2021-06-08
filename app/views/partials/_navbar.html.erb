@@ -1,19 +1,9 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-bottom shadow-sm bg-white rounded">
-    <%= link_to root_path do %>
-   <%= image_tag "Logo.png", alt: "Inside Out", class: "navbar-brand" %>
-<% end %>
+<div class="navbar navbar-light navbar-lewagon d-flex justify-content-between border-bottom shadow-sm bg-white rounded">
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <%= link_to root_path do %>
+     <%= image_tag "Logo.png", alt: "Inside Out", class: "navbar-brand" %>
+  <% end %>
 
+    <i class="fas fa-user avatar" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <i class="fas fa-user avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-        </div>
-      </li>
-    </ul>
-  </div>
 </div>
