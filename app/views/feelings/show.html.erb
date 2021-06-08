@@ -1,16 +1,42 @@
-<h1>Feeling details</h1>
 
-<h2><%= @feeling.title %></h2>
-<h4><%= @feeling.category %></h4>
-<p><%= @feeling.description %></p>
-<h4><%= @feeling.price %> €</h4>
+<div class="container p-4">
+  <div class="row">
+      <div class="col-6"><h2>Feeling details for <%= @feeling.title %></h2></div>
+      <div class="col-6"><h4 class="text-right">Category : <%= @feeling.category %></h4></div>
+  </div>
+</div>
+<div class="container">
+  <% if false %>
+    <%= image_tag(@feeling.img class: 'feeling-banner-img w-100 rounded-3') %>
+  <% else %>
+    <%= image_tag("https://picsum.photos/600/200", class: 'feeling-banner-img w-100 rounded-3' ) %>
+  <% end %>
+</div>
 
-<p><% if @feeling.availibility %>
-   <button name="button" type="submit">'Book me!!'</button>
-   <% else %>
-   <%= 'Sorry, no availibility for this feeling' %>
-   <% end %>
-</p>
+<div class="container p-4">
+  <div class="row align-items-center">
+    <div class="col-12 col-lg-8 border-bottom">
+      <div class=""><p><%= @feeling.description %></p></div>
+    </div>
+    <div class="col-12 col-lg-4 shadow p-3 mb-5 bg-body ">
+       <div class="price-card ">
+        <h4><%= @feeling.price %> €</h4>
+        <p><% if @feeling.availibility %>
+           <button name="button" type="submit">Book me!!</button>
+           <% else %>
+           <%= 'Sorry, no availibility for this feeling' %>
+           <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit the feeling informations', edit_feeling_path(@feeling) %>
-<%= link_to 'Back to the list', feelings_path %>
+
+<div class="container">
+  <div class="row">
+      <div class="col-6 col-sm-3"><%= link_to 'Edit your informations', edit_feeling_path(@feeling), class: 'btn btn-primary' %></div>
+      <div class="col-6 col-sm-3"><%= link_to 'Back to the list', feelings_path, class: 'btn btn-primary'  %></div>
+  </div>
+</div>
+

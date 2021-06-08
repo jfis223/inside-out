@@ -18,6 +18,7 @@ before_action :set_task, only: [:show, :edit]
       redirect_to @booking, notice: 'Your new booking has been saved!'
     else
       render :new
+    end
   end
 
   def edit
