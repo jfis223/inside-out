@@ -1,14 +1,17 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 54px;
-  padding: 13px;
+  grid-gap: 20px;
 }
 
+@media only screen and (max-width: 600px) {
+.cards {
+grid-template-columns: 1fr 1fr;
+  }
+}
 
 .card-product img {
-  height: 40%;
-  width: 40%;
+  height: 10em;
   object-fit: cover;
 }
 
@@ -23,17 +26,28 @@
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
-  margin-top: 8px;
 }
 
 .card-product-infos {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 16px;
 }
 
-.cards a
-{
+.cards a {
  text-decoration:none;
 }
 
+.card-info {
+  height: 8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cards a {
+  color: black!important;
+}
+
+.cards a:hover {
+  color: black!important;
+}
