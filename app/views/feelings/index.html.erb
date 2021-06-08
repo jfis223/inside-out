@@ -1,2 +1,14 @@
-<h1>Feelings#index</h1>
-<p>Find me in app/views/feelings/index.html.erb</p>
+<h1>Feelings</h1>
+
+
+  <% @feelings.each do |feeling| %>
+    <div class="card card-feeling">
+    <h2><%= feeling.title %></h2>
+    <h3><%= feeling.category %></h3>
+    <p><%= feeling.description %></p>
+    <p><%= feeling.price %> €</p>
+    <%= link_to 'More info', feeling_path(feeling) %>
+  </div>
+  <% end %>
+
+  <%= link_to 'Sell a feeling', new_feeling_path %>

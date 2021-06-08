@@ -1,2 +1,16 @@
-<h1>Feelings#show</h1>
-<p>Find me in app/views/feelings/show.html.erb</p>
+<h1>Feeling details</h1>
+
+<h2><%= @feeling.title %></h2>
+<h4><%= @feeling.category %></h4>
+<p><%= @feeling.description %></p>
+<h4><%= @feeling.price %> €</h4>
+
+<p><% if @feeling.availibility %>
+   <button name="button" type="submit">'Book me!!'</button>
+   <% else %>
+   <%= 'Sorry, no availibility for this feeling' %>
+   <% end %>
+</p>
+
+<%= link_to 'Edit the feeling informations', edit_feeling_path(@feeling) %>
+<%= link_to 'Back to the list', feelings_path %>
