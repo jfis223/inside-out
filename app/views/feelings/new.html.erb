@@ -1,10 +1,17 @@
-<h1>Sell a feeling</h1>
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <h1>Sell a feeling</h1>
+  </div>
 
-<%= simple_form_for (@feeling)do |f| %>
-<%= f.input :title, placeholder: 'Title' %>
-<%= f.input :category, collection: Feeling::CATEGORIES %>
-<%= f.input :description, placeholder: 'Description' %>
-<%= f.input :price, placeholder: 'Price' %>
-<%= f.input :image, as: :file %>
-<%= f.submit class: 'btn btn-primary' %>
-<% end %>
+  <div class="form">
+    <%= simple_form_for (@feeling)do |f| %>
+    <%= f.input :title, placeholder: 'Title' %>
+    <%= f.input :category, collection: Feeling::CATEGORIES %>
+    <%= f.input :description, placeholder: 'Description' %>
+    <%= f.input :price, placeholder: 'Price' %>
+    <%= f.input :image, as: :file %>
+    <%= f.submit class: 'btn' %>
+    <% end %>
+  </div>
+</div>
+
