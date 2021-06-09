@@ -31,7 +31,7 @@
         </div>
         <div>
           <p><% if @feeling.availibility %>
-              <button name="button" type="submit"><%= link_to 'I want to feel this', new_feeling_booking_path(@feeling), class: "btn btn-success" %></button>
+              <%= link_to 'I want to feel this', new_feeling_booking_path(@feeling), class: "btn btn-success" %>
              <% else %>
              <%= "Sorry, this feeling's already booked" %>
              <% end %>
