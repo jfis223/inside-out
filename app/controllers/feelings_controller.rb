@@ -33,14 +33,13 @@ class FeelingsController < ApplicationController
   def results
   end
 
-private
+  private
 
-def set_task
-  @feeling = Feeling.find(params[:id])
-end
+  def set_task
+    @feeling = Feeling.find(params[:id])
+  end
 
-def feeling_params
-  params.require(:feeling).permit(:title, :description, :image, :category, :price)
-end
-
+  def feeling_params
+    params.require(:feeling).permit(:title, :description, :image, :category, :price)
+  end
 end
