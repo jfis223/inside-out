@@ -1,9 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'banner.jpeg' %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'banner.jpg' %>);">
   <div class="container">
     <h1><strong>Are you overwhelmed by feelings?</strong></h1>
     <p>Sell them to those in need!</p>
     <div class="d-flex justify-content-center">
+      <% if user_signed_in?  %>
+      <%= link_to 'Post your feeling for rent', new_feeling_path, class: "btn btn-light" %>
+        <% else %>
       <%= link_to 'Become a seller', new_user_registration_path, class: "btn btn-light" %>
+        <% end %>
     </div>
   </div>
 </div>
