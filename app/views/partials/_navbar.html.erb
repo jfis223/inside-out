@@ -4,17 +4,21 @@
      <%= image_tag "Logo.png", alt: "Inside Out", class: "navbar-brand" %>
   <% end %>
 
+  <div>
+    <div class="dropleft">
 
-    <div class="dropdown">
-
-    <i class="fas fa-user avatar dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+    <i class="fas fa-user avatar dropleft-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><i class=" " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-      <li><button class="dropdown-item" type="button"><%= link_to 'Sell a feeling', new_feeling_path %></button></li>
-      <li><button class="dropdown-item" type="button"><%= link_to 'Sign up', new_user_registration_path %></button></li>
-      <li><button class="dropdown-item" type="button"><%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you certain you want to log out ?' } %></button></li>
-      <li><button class="dropdown-item" type="button"><%= link_to 'Sign in', user_session_path %></button></li>
-    </ul>
+      <% if user_signed_in? %>
+        <li><button class="dropdown-item" type="button"><%= link_to 'Sell a feeling', new_feeling_path %></button></li>
+        <li><button class="dropdown-item" type="button"><%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you certain you want to log out ?' } %></button></li>
+      <% else %>
+        <li><button class="dropdown-item" type="button"><%= link_to 'Sign in', user_session_path %></button></li>
+        <li><button class="dropdown-item" type="button"><%= link_to 'Register', new_user_registration_path %></button></li>
+      <% end %>
+      </ul>
+</div>
 </div>
 </div>
 
