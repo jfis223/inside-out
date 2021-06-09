@@ -1,42 +1,41 @@
 
-<div class="container p-4">
+<div class="container p-3">
   <div class="row">
-      <div class="col-6"><h2>Feeling details for <%= @feeling.title %></h2></div>
-      <div class="col-6"><h4 class="text-right">Category : <%= @feeling.category %></h4></div>
+      <div class="col-6 pt-2"><h2><%= @feeling.title.capitalize %></h2>
+      <p style="color: gray;">Feeling Details</p>
+      </div>
+      <div class="col-6 pt-2 d-flex flex-column align-items-end justify-content-center"><h5 style="color: gray;">Category : <%= @feeling.category.capitalize %></h5>
+      <%= link_to 'Back to feelings list', feelings_path, style: "color: green;"  %>
+      </div>
   </div>
 </div>
 <div class="container">
   <% if false %>
     <%= image_tag(@feeling.img class: 'feeling-banner-img w-100 rounded-3') %>
   <% else %>
-    <%= image_tag("https://picsum.photos/600/200", class: 'feeling-banner-img w-100 rounded-3' ) %>
+    <%= cl_image_tag @feeling.image.key, :height => 400, class: 'feeling-banner-img w-100 shadow-sm', style: 'object-fit: cover;' %>
   <% end %>
 </div>
 
 <div class="container p-4">
   <div class="row align-items-center">
-    <div class="col-12 col-lg-8 border-bottom">
+    <div class="col-12 col-lg-8 p-4">
       <div class=""><p><%= @feeling.description %></p></div>
     </div>
-    <div class="col-12 col-lg-4 shadow p-3 mb-5 bg-body ">
-       <div class="price-card ">
-        <h4><%= @feeling.price %> €</h4>
-        <p><% if @feeling.availibility %>
-           <button name="button" type="submit">Book me!!</button>
-           <% else %>
-           <%= 'Sorry, no availibility for this feeling' %>
-           <% end %>
-        </p>
+    <div class="col-12 col-lg-4 p-3 mb-5 shadow-sm rounded-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'Background.jpg' %>)">
+       <div class="price-card">
+        <div class="d-flex flex-column align-items-end justify-content-center">
+          <p>Price per day:</p><h4><%= @feeling.price %> €</h4>
+        </div>
+        <div>
+          <p><% if @feeling.availibility %>
+             <button name="button" type="submit" class="btn btn-success" style="color: white;">I need to feel this</button>
+             <% else %>
+             <%= "Sorry, this feeling's already booked" %>
+             <% end %>
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
-<div class="container">
-  <div class="row">
-      <div class="col-6 col-sm-3"><%= link_to 'Edit your informations', edit_feeling_path(@feeling), class: 'btn btn-primary' %></div>
-      <div class="col-6 col-sm-3"><%= link_to 'Back to the list', feelings_path, class: 'btn btn-primary'  %></div>
-  </div>
-</div>
-
