@@ -3,9 +3,12 @@ Rails.application.routes.draw do
     collection do
       get :results
     end
+      resources :bookings, only: [:new,:create, :edit, :update]
   end
   devise_for :users
   root to: 'pages#home'
+
+  resources :bookings, only: [:show]
 
 
 

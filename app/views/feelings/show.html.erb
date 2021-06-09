@@ -21,8 +21,9 @@
     <div class="col-12 col-lg-4 shadow p-3 mb-5 bg-body ">
        <div class="price-card ">
         <h4><%= @feeling.price %> €</h4>
+
         <p><% if @feeling.availibility %>
-           <button name="button" type="submit">Book me!!</button>
+           <button name="button" type="submit"><%= link_to 'Book me!', new_feeling_booking_path(@feeling) %></button>
            <% else %>
            <%= 'Sorry, no availibility for this feeling' %>
            <% end %>

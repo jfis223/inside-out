@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header">
+    <%= @feeling.title %>
+  </div>
+  <div class="card-body">
+    <p>Please book the time period for your feeling:</p>
+
+    <div class="form">
+      <%= simple_form_for [@feeling, @booking] do |f| %>
+      <%= f.input :check_in, as: :string, placeholder: 'Start date' %>
+      <%= f.input :check_out, as: :string, placeholder: 'End date' %>
+
+      <%= f.submit class: 'btn' %>
+      <%= @booking.total_price %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+      <div class="col-6 col-sm-3"><%= link_to 'Back to the list', feelings_path, class: 'btn btn-primary'  %></div>
+  </div>
+</div>
+
+
+
