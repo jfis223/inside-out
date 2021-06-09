@@ -17,7 +17,7 @@ puts "Drowning your feelings away..."
 puts "Making a real boy out of Pinocchio..."
 
 10.times do
-  feelings = %w[happiness admitation luck anger serenity lust love disappointment jealousy strength motivation charmness amusement optimism gratitude desparation enthusiasm]
+  feelings = %w[happiness admitation luck anger serenity lust love disappointment jealousy strength motivation charmness amusement optimism gratitude desperation enthusiasm]
 
   description = Faker::Quote.jack_handey
 
@@ -27,7 +27,13 @@ puts "Making a real boy out of Pinocchio..."
 
   availability = true
 
-  Feeling.create!(title: feelings.sample, description: description, availibility: availability, category: categories.sample, price: price, user: joaquin)
+  url = 'https://source.unsplash.com/random'
+
+  image = URI.open(url)
+
+  feeling = Feeling.create!(title: feelings.sample, description: description, availibility: availability, category: categories.sample, price: price, user: joaquin)
+
+  feeling.image.attach(io: image, filename: 'image.jpg')
 end
 
 puts 'You can feel again'
