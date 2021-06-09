@@ -25,11 +25,13 @@
     <div class="col-12 col-lg-4 p-3 mb-5 shadow-sm rounded-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'Background.jpg' %>)">
        <div class="price-card">
         <div class="d-flex flex-column align-items-end justify-content-center">
-          <p>Price per day:</p><h4><%= @feeling.price %> €</h4>
+          <p>Price per day:</p>
+          <p style="font-size: 20px; font-weight: bolder;"><%= @feeling.price %> €</p>
+          <p>Sold by: <strong><%= @feeling.user.name.capitalize %></strong></p>
         </div>
         <div>
           <p><% if @feeling.availibility %>
-             <button name="button" type="submit" class="btn btn-success" style="color: white;">I need to feel this</button>
+             <button name="button" type="submit" class="btn btn-success" style="color: white;">I want to feel this</button>
              <% else %>
              <%= "Sorry, this feeling's already booked" %>
              <% end %>
