@@ -1,4 +1,4 @@
 class ApplicationController < ActionController::Base
-#  before_action :authenticate_user!, only: :create
+  before_action :authenticate_user!, except: %i[index show]
 end
 
