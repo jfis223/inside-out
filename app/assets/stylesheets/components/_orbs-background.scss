@@ -5,33 +5,32 @@ $blue: #218AC6;
   box-sizing: border-box;
 }
 
-.wrap{
+.wrap {
+  display: block;
+  position: relative;
   perspective-origin: 50% 50%;
-}
-
-.svg{
-  stroke:$blue;
-  position:absolute;
-  bottom: -100vh;
-  transform-style: preserve-3d;
-}
-
-$total: 10;
-@for $i from 1 through $total {
-  $scale:random(2) - .4;
-
-  .svg:nth-child(#{$i}){
-    left:random(120) * 1% - 20;
-    animation: raise#{$i} 6 + random(15) +s linear infinite;
-    animation-delay:random(5) - 5 + s;
-    transform: scale(.3 * $i - .6) rotate(random(360) + deg);
-    z-index: $i - 50;
-    filter: blur($i - 6 + px);
-
-    @keyframes raise#{$i} {
-      to{
-       bottom:150vh;
-       transform: scale(.3 * $i - .6) rotate(random(360) + deg);
+  overflow: hidden;
+  .svg {
+    stroke:$blue;
+    position:absolute;
+    bottom: -150vh;
+    transform-style: preserve-3d;
+  }
+  $total: 10;
+  @for $i from 1 through $total {
+    $scale:random(2) - .4;
+    .svg:nth-child(#{$i}){
+      left:random(120) * 1% - 20;
+      animation: raise#{$i} 6 + random(15) +s linear infinite;
+      animation-delay:random(5) - 5 + s;
+      transform: scale(.3 * $i - .6) rotate(random(360) + deg);
+      z-index: $i - 50;
+      filter: blur($i - 6 + px);
+      @keyframes raise#{$i} {
+        to{
+         bottom:150vh;
+         transform: scale(.3 * $i - .6) rotate(random(360) + deg);
+        }
       }
     }
   }
