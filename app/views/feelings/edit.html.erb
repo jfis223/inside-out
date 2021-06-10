@@ -1,2 +1,24 @@
-<h1>Feelings#edit</h1>
-<p>Find me in app/views/feelings/edit.html.erb</p>
+
+
+<div class="form">
+  <h2 style="text-align: center; margin: 20px;">Modify your listing</h2>
+
+    <%= simple_form_for (@feeling)do |f| %>
+    <%= f.input :title, placeholder: 'Title' %>
+    <%= f.input :category, collection: Feeling::CATEGORIES %>
+    <%= f.input :description, placeholder: 'Description' %>
+    <%= f.input :price, placeholder: 'Price' %>
+    <%= f.input :image, as: :file %>
+
+  <div class="form-actions">
+ <div class="row justify-content-end">
+<div class="col-2 d-flex justify-content-end">
+  <div class="glow-on-hover" style="border: 1px solid #CED4D9">
+    <%= f.submit class: 'btn' %>
+        </div>
+  </div>
+</div>
+</div>
+    <% end %>
+  </div>
+

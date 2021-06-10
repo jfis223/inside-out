@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
   def new
     @feeling = Feeling.find(params[:feeling_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -18,6 +19,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.feeling = @feeling
+    authorize @booking
 
     if @booking.save
       redirect_to @booking, notice: 'Your new booking has been saved!'
@@ -38,6 +40,7 @@ class BookingsController < ApplicationController
 
   def set_task
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def booking_params

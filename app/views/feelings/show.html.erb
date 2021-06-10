@@ -5,15 +5,15 @@
       <p style="color: gray;">Feeling Details</p>
       </div>
       <div class="col-6 pt-2 d-flex flex-column align-items-end justify-content-center"><h5 style="color: gray;">Category : <%= @feeling.category.capitalize %></h5>
-      <%= link_to 'Back to feelings list', feelings_path, style: "color: green;"  %>
+      <div class="d-flex justify-content-end"><%= link_to 'Back to feelings list', feelings_path, class: "glow-on-hover"  %></div>
       </div>
   </div>
 </div>
 <div class="container">
-  <% if false %>
-    <%= image_tag(@feeling.img class: 'feeling-banner-img w-100 rounded-3') %>
-  <% else %>
+  <% if @feeling.image.attached? %>
     <%= cl_image_tag @feeling.image.key, :height => 400, class: 'feeling-banner-img w-100 shadow-sm', style: 'object-fit: cover;' %>
+  <% else %>
+    <%= image_tag "banner.jpg", class: 'feeling-banner-img w-100 rounded-3' %>
   <% end %>
 </div>
 
@@ -27,15 +27,18 @@
         <div class="d-flex flex-column align-items-end justify-content-center">
           <p>Price per day:</p>
           <p style="font-size: 20px; font-weight: bolder;"><%= @feeling.price %> €</p>
-          <p>Sold by: Julian</strong></p>
+          <p>Sold by: <%= @feeling.user.name.capitalize %></p>
         </div>
         <div>
-          <p><% if @feeling.availibility %>
-              <%= link_to 'I want to feel this', new_feeling_booking_path(@feeling), class: "btn btn-success" %>
+          <% if @feeling.availibility %>
+              <div id="button-details"><%= link_to 'I want to feel this', new_feeling_booking_path(@feeling), class: "glow-on-hover" %></div>
              <% else %>
-             <%= "Sorry, this feeling's already booked" %>
+             <div class="d-flex align-items-start justify-content-start"><%= "Sorry, this feeling's already booked" %></div>
              <% end %>
           </p>
+          <% if policy(@feeling).edit? %>
+            <div id="button-details"><%= link_to 'Edit this feeling', edit_feeling_path(@feeling), class: "glow-on-hover" %></div>
+          <% end %>
         </div>
       </div>
     </div>

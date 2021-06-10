@@ -1,30 +1,23 @@
-<div class="card">
-  <div class="card-header">
-    <%= @feeling.title %>
-  </div>
-  <div class="card-body">
-    <p>Please book the time period for your feeling:</p>
 
-    <div class="form">
+<div class="form">
+  <h2 style="text-align: center; margin: 20px;">Get some <%= @feeling.title %></h2>
+
+    <p>Which dates would you like to receive this feeling?</p>
+
       <%= simple_form_for [@feeling, @booking] do |f| %>
-      <%= f.input :check_in, as: :string, placeholder: 'Start date' %>
-      <%= f.input :check_out, as: :string, placeholder: 'End date' %>
+      <%= f.input :check_in, as: :string, placeholder: 'DD/MM/YYYY' %>
+      <%= f.input :check_out, as: :string, placeholder: 'DD/MM/YYYY' %>
 
-      <%= f.submit class: 'btn' %>
-      <%= @booking.total_price %>
-      <% end %>
+  <p>Grand total: <%= @booking.total_price %></p>
 
-    </div>
+  <div class="form-actions">
+ <div class="row justify-content-end">
+<div class="col-2 d-flex justify-content-end">
+  <div class="glow-on-hover" style="border: 1px solid #CED4D9">
+    <%= f.submit class: 'btn' %>
+        </div>
   </div>
 </div>
-
-
-
-<div class="container">
-  <div class="row">
-      <div class="col-6 col-sm-3"><%= link_to 'Back to the list', feelings_path, class: 'btn btn-primary'  %></div>
-  </div>
 </div>
-
-
-
+    <% end %>
+  </div>
