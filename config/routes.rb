@@ -4,7 +4,10 @@ Rails.application.routes.draw do
       get :results
     end
       resources :bookings, only: [:new,:create, :edit, :update]
+
+    resources :reviews, only: %i[new create]
   end
+
   devise_for :users
   root to: 'pages#home'
 

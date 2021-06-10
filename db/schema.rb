@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_101109) do
+ActiveRecord::Schema.define(version: 2021_06_10_132529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_101109) do
     t.integer "total_price"
     t.bigint "feeling_id", null: false
     t.bigint "user_id", null: false
-    t.boolean "acceptance", default: false
+    t.boolean "acceptance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["feeling_id"], name: "index_bookings_on_feeling_id"
@@ -52,13 +52,22 @@ ActiveRecord::Schema.define(version: 2021_06_08_101109) do
   create_table "feelings", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.boolean "availibility", default: true
+    t.boolean "availibility"
     t.string "category"
     t.integer "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_feelings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "feeling_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["feeling_id"], name: "index_reviews_on_feeling_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -78,4 +87,5 @@ ActiveRecord::Schema.define(version: 2021_06_08_101109) do
   add_foreign_key "bookings", "feelings"
   add_foreign_key "bookings", "users"
   add_foreign_key "feelings", "users"
+  add_foreign_key "reviews", "feelings"
 end
