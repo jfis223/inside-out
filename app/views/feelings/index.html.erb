@@ -1,5 +1,22 @@
 <%= render './partials/feelings-banner' %>
 <div class="ml-3 mr-3">
+
+<div class="filter">
+  <div class="col-4">
+    <div class="d-flex bd-highlight mb-3">
+      <div class="p-4 bd-highlight flex-grow-1">
+        <%= simple_form_for :search, url: feelings_path, method: 'get' do |f| %>
+          <%= f.input :category, collection: Feeling::CATEGORIES, prompt: 'Select a category', selected: params.dig(:search, :category), label: false %>
+      </div>
+      <div class="p-4 bd-highlight">
+        <%= f.submit "Apply filter" %>
+      </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="cards">
   <% @feelings.each do |feeling| %>
     <div class="card-product">

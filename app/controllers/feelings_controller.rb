@@ -2,7 +2,11 @@ class FeelingsController < ApplicationController
   before_action :set_task, only: [:show, :edit]
 
   def index
-    @feelings = Feeling.all
+    if params[:search].present?
+      @feelings = Feeling.where(category: params.dig(:search, :category))
+    else
+      @feelings = Feeling.all
+    end
   end
 
   def show
