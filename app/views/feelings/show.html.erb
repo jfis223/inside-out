@@ -21,17 +21,8 @@
   <div class="row align-items-center">
     <div class="col-12 col-lg-8 p-4">
       <div class=""><p><%= @feeling.description %></p></div>
-      <h4>What they think about it :</h4>
-      <div class=""><ul class="list-unstyled"><% @feeling.reviews.each do |review| %>
-        <li>
-          <p>
-            <%= review.content %>
-          </p>
-          <p><%= '⭐' * review.rating  %></p>
-        </li>
-        <% end %>
-      </ul>
-      </div>
+
+       <%= render './partials/reviewforshow' %>
     </div>
     <div class="col-12 col-lg-4 p-3 mb-5 shadow-sm rounded-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'Background.jpg' %>)">
        <div class="price-card">

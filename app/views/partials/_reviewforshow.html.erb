@@ -1,0 +1,32 @@
+<div>
+<h3 class="d-flex justify-content-center m-5"> What our customers are saying...</h3>
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner pl-5 pr-5 pb-5">
+    <div class="carousel-item active">
+      <div class="cards-wrapper">
+      <% @feeling.reviews.each do |review| %>
+      <div class="card">
+
+        <div class="card-body">
+          <i class="fas fa-quote-right"></i>
+          <h5 class="card-title"><%= '⭐' * review.rating  %></h5>
+          <p class="card-text"> <%= review.content %></p>
+        </div>
+        </div>
+        <% end %>
+
+
+
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+
+
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
