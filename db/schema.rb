@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_132529) do
     t.integer "total_price"
     t.bigint "feeling_id", null: false
     t.bigint "user_id", null: false
-    t.boolean "acceptance"
+    t.boolean "acceptance", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["feeling_id"], name: "index_bookings_on_feeling_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_132529) do
   create_table "feelings", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.boolean "availibility"
+    t.boolean "availibility", default: true
     t.string "category"
     t.integer "price"
     t.bigint "user_id", null: false

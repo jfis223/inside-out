@@ -4,6 +4,8 @@ class FeelingsController < ApplicationController
   def index
     if params[:query].present?
       @feelings = policy_scope(Feeling).search_by_title_and_category_and_description(params[:query])
+    elsif params[:search].present?
+      @feelings = policy_scope(Feeling).where(category: params.dig(:search, :category))
     else
       @feelings = policy_scope(Feeling)
     end

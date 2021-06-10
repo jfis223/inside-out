@@ -2,14 +2,17 @@
 <div class="ml-3 mr-3">
 
 <div class="filter">
-  <div class="col-4">
+  <div class="col-5">
     <div class="d-flex bd-highlight mb-3">
       <div class="p-4 bd-highlight flex-grow-1">
         <%= simple_form_for :search, url: feelings_path, method: 'get' do |f| %>
-          <%= f.input :category, collection: Feeling::CATEGORIES, prompt: 'Select a category', selected: params.dig(:search, :category), label: false %>
+          <%= f.input :category, collection: Feeling::CATEGORIES_FILTER, prompt: 'Select a category', selected: params.dig(:search, :category), label: false %>
+
       </div>
       <div class="p-4 bd-highlight">
-        <%= f.submit "Apply filter" %>
+        <div class="glow-on-hover p-0" style="border: 1px solid #CED4D9">
+        <%= submit_tag "Apply filter", class: "btn" %>
+        </div>
       </div>
         <% end %>
       </div>
