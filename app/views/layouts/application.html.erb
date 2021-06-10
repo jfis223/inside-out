@@ -12,10 +12,12 @@
   </head>
 
   <body>
-    <%= render './partials/navbar' %>
-    <%= yield %>
+   <%= render './partials/navbar' %>
+    <div class="wrap">
+      <%= render './partials/orbs' %>
+      <%= yield %>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>
-  <%= render './partials/orbs' %>
 </html>

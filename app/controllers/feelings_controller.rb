@@ -1,9 +1,12 @@
 class FeelingsController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update]
 
-
   def index
-    @feelings = policy_scope(Feeling)
+    if params[:query].present?
+      @feelings = policy_scope(Feeling).search_by_title_and_category_and_description(params[:query])
+    else
+      @feelings = policy_scope(Feeling)
+    end
   end
 
   def show
