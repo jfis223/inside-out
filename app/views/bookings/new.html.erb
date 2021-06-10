@@ -5,8 +5,8 @@
     <p>Which dates would you like to receive this feeling?</p>
 
       <%= simple_form_for [@feeling, @booking] do |f| %>
-      <%= f.input :check_in, as: :string, placeholder: 'DD/MM/YYYY' %>
-      <%= f.input :check_out, as: :string, placeholder: 'DD/MM/YYYY' %>
+      <%= f.input :check_in, as: :date, placeholder: 'DD/MM/YYYY' %>
+      <%= f.input :check_out, as: :date, placeholder: 'DD/MM/YYYY' %>
 
   <p>Grand total: <%= @booking.total_price %></p>
 
