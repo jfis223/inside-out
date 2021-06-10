@@ -1,11 +1,12 @@
-<div class="container">
-  <div class="d-flex justify-content-center">
-    <h1>Your booking has been saved !</h1>
+
+  <div class="form">
+    <h1 class="text-center">Thank you <%= @booking.user.name %>, </h1>
+      <h2 class="text-center p-3"> your booking has been saved !</h2>
     <div class="Bookin info">
-      <%= @booking.check_in %>
-      <%= @booking.check_out %>
-      <% @booking.total_price %>
+      <p class="text-center p-3">From <%= @booking.check_in.day %>/<%= @booking.check_in.month %>/<%= @booking.check_in.year %> to <%= @booking.check_out.day %>/<%= @booking.check_out.month %>/<%= @booking.check_out.year %> </p>
     </div>
   </div>
 
-</div>
+
+
+

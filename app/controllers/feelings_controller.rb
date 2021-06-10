@@ -20,7 +20,7 @@ class FeelingsController < ApplicationController
     authorize @feeling
 
     if @feeling.save
-      redirect_to feeling_path(@feeling), notice: 'Your new feeling has been created!'
+      redirect_to feeling_path(@feeling)
     else
       render :new
     end

@@ -7,8 +7,8 @@
 
     <div class="form">
       <%= simple_form_for [@feeling, @booking] do |f| %>
-      <%= f.input :check_in, as: :string, placeholder: 'DD/MM/YYYY' %>
-      <%= f.input :check_out, as: :string, placeholder: 'DD/MM/YYYY' %>
+      <%= f.input :check_in, as: :date, placeholder: 'DD/MM/YYYY' %>
+      <%= f.input :check_out, as: :date, placeholder: 'DD/MM/YYYY' %>
 
       <%= f.submit class: 'btn' %>
       <%= @booking.total_price %>
