@@ -4,4 +4,5 @@ class Feeling < ApplicationRecord
   CATEGORIES = %w[positive negative empowering vengeful rare]
   validates :category, inclusion: { in: CATEGORIES }
   has_one_attached :image
+  has_many :reviews
 end
