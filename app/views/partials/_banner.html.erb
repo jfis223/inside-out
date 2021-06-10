@@ -4,9 +4,9 @@
     <p>Sell them to those in need!</p>
     <div class="d-flex justify-content-center">
       <% if user_signed_in?  %>
-      <%= link_to 'Post your feeling for rent', new_feeling_path, class: "btn btn-light" %>
+      <%= link_to 'Post your feeling for rent', new_feeling_path, class: "glow-on-hover" %>
         <% else %>
-      <%= link_to 'Become a seller', new_user_registration_path, class: "btn btn-light" %>
+      <%= link_to 'Become a seller', new_user_registration_path, class: "glow-on-hover" %>
         <% end %>
     </div>
   </div>

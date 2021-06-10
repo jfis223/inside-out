@@ -5,7 +5,7 @@
       <p style="color: gray;">Feeling Details</p>
       </div>
       <div class="col-6 pt-2 d-flex flex-column align-items-end justify-content-center"><h5 style="color: gray;">Category : <%= @feeling.category.capitalize %></h5>
-      <%= link_to 'Back to feelings list', feelings_path, style: "color: green;"  %>
+      <div class="d-flex justify-content-end"><%= link_to 'Back to feelings list', feelings_path, class: "glow-on-hover"  %></div>
       </div>
   </div>
 </div>
@@ -30,14 +30,14 @@
           <p>Sold by: Julian</strong></p>
         </div>
         <div>
-          <p><% if @feeling.availibility %>
-              <%= link_to 'I want to feel this', new_feeling_booking_path(@feeling), class: "btn btn-success" %>
+          <% if @feeling.availibility %>
+              <div id="button-details"><%= link_to 'I want to feel this', new_feeling_booking_path(@feeling), class: "glow-on-hover" %></div>
              <% else %>
-             <%= "Sorry, this feeling's already booked" %>
+             <div class="d-flex align-items-start justify-content-start"><%= "Sorry, this feeling's already booked" %></div>
              <% end %>
           </p>
           <% if policy(@feeling).edit? %>
-            <%= link_to 'Edit this feeling', edit_feeling_path(@feeling) %>
+            <div id="button-details"><%= link_to 'Edit this feeling', edit_feeling_path(@feeling), class: "glow-on-hover" %></div>
           <% end %>
         </div>
       </div>
