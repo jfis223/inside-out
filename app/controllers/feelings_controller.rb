@@ -1,8 +1,9 @@
 class FeelingsController < ApplicationController
-  before_action :set_task, only: [:show, :edit]
+  before_action :set_task, only: [:show, :edit, :update]
+
 
   def index
-    @feelings = Feeling.all
+    @feelings = policy_scope(Feeling)
   end
 
   def show
@@ -10,11 +11,14 @@ class FeelingsController < ApplicationController
 
   def new
     @feeling = Feeling.new
+    authorize @feeling
   end
 
   def create
     @feeling = Feeling.new(feeling_params)
     @feeling.user = current_user
+    authorize @feeling
+
     if @feeling.save
       redirect_to feeling_path(@feeling), notice: 'Your new feeling has been created!'
     else
@@ -23,6 +27,7 @@ class FeelingsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
@@ -37,6 +42,7 @@ class FeelingsController < ApplicationController
 
   def set_task
     @feeling = Feeling.find(params[:id])
+    authorize @feeling
   end
 
   def feeling_params
