@@ -36,6 +36,9 @@
              <%= "Sorry, this feeling's already booked" %>
              <% end %>
           </p>
+          <% if policy(@feeling).edit? %>
+            <%= link_to 'Edit this feeling', edit_feeling_path(@feeling) %>
+          <% end %>
         </div>
       </div>
     </div>
