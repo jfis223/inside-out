@@ -27,7 +27,7 @@
         <div class="d-flex flex-column align-items-end justify-content-center">
           <p>Price per day:</p>
           <p style="font-size: 20px; font-weight: bolder;"><%= @feeling.price %> €</p>
-          <p>Sold by: Julian</strong></p>
+          <p>Sold by: <%= @feeling.user.name.capitalize %></p>
         </div>
         <div>
           <% if @feeling.availibility %>
