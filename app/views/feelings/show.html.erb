@@ -10,10 +10,10 @@
   </div>
 </div>
 <div class="container">
-  <% if false %>
-    <%= image_tag(@feeling.img class: 'feeling-banner-img w-100 rounded-3') %>
-  <% else %>
+  <% if @feeling.image.attached? %>
     <%= cl_image_tag @feeling.image.key, :height => 400, class: 'feeling-banner-img w-100 shadow-sm', style: 'object-fit: cover;' %>
+  <% else %>
+    <%= image_tag "banner.jpg", class: 'feeling-banner-img w-100 rounded-3' %>
   <% end %>
 </div>
 
