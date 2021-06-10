@@ -1,17 +1,21 @@
-<div class="container">
-  <div class="d-flex justify-content-center">
-    <h1>Sell a feeling</h1>
-  </div>
+<div class="form">
+  <h2 style="text-align: center; margin: 20px;">List a new feeling</h2>
 
-  <div class="form">
     <%= simple_form_for (@feeling)do |f| %>
     <%= f.input :title, placeholder: 'Title' %>
     <%= f.input :category, collection: Feeling::CATEGORIES %>
     <%= f.input :description, placeholder: 'Description' %>
     <%= f.input :price, placeholder: 'Price' %>
     <%= f.input :image, as: :file %>
+ <div class="form-actions">
+ <div class="row justify-content-end">
+<div class="col-2 d-flex justify-content-end">
+  <div class="glow-on-hover" style="border: 1px solid #CED4D9">
     <%= f.submit class: 'btn' %>
-    <% end %>
+        </div>
   </div>
 </div>
+    <% end %>
+  </div>
+    </div>
 
