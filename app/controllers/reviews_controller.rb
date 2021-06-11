@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     if @review.save # true / false
       redirect_to feeling_path(@feeling)
     else
-      render :new
+      render 'feelings/show'
     end
   end
 

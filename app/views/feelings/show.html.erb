@@ -21,7 +21,12 @@
   <div class="row align-items-center">
     <div class="col-12 col-lg-8 p-4">
       <div class=""><p><%= @feeling.description %></p></div>
-      <h4>What they think about it :</h4>
+      <% if @feeling.reviews.count == 0 %>
+        <h4>There's no review yet</h4>
+      <% else %>
+        <h4>What they think about it :</h4>
+      <% end %>
+
       <div class=""><ul class="list-unstyled"><% @feeling.reviews.each do |review| %>
         <li>
           <p>
@@ -56,3 +61,5 @@
     </div>
   </div>
 </div>
+
+<%= render './partials/reviewform' %>

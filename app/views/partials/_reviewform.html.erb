@@ -1,0 +1,11 @@
+
+<div class="form">
+<h1>Let us know how was your experience :</h1>
+<%= simple_form_for [@feeling, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating, collection: 0..5 %>
+  <div class="glow-on-hover p-0" style="border: 1px solid #CED4D9">
+    <%= f.submit, class: "btn" %>
+  </div>
+<% end %>
+</div>
