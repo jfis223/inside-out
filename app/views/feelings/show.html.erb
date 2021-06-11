@@ -39,7 +39,6 @@
         <div class="review-cards">
           <% @feeling.reviews.each do |review| %>
           <div class="card-review">
-              <h6><%= current_user.name.capitalize %></h6>
               <p><%= '⭐' * review.rating  %></p>
               <i class="fas fa-quote-left"></i> <%= review.content %>
           </div>

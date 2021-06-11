@@ -5,9 +5,9 @@
     <%= f.input :title, placeholder: 'Title' %>
     <%= f.input :category, collection: Feeling::CATEGORIES %>
     <%= f.input :description, placeholder: 'Description' %>
-    <%= f.input :sideeffects, placeholder: 'Side Effects' %>
-    <%= f.input :recommendedto, placeholder: 'Recommended to' %>
-    <%= f.input :care, placeholder: 'Do not mix it with' %>
+    <%= f.input :sideeffects, placeholder: 'Side Effects', label: 'What are the side effects?' %>
+    <%= f.input :recommendedto, placeholder: 'Recommended to', label: 'Who would you recommend this to?' %>
+    <%= f.input :care, placeholder: 'Do not mix it with...', label: 'What should people pay attention to when using your feeling?' %>
     <%= f.input :price, placeholder: 'Price' %>
      <%= f.input :image, as: :file, required: false %>
  <div class="form-actions">

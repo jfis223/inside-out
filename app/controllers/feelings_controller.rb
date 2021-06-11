@@ -52,6 +52,6 @@ class FeelingsController < ApplicationController
   end
 
   def feeling_params
-    params.require(:feeling).permit(:title, :description, :image, :category, :price)
+    params.require(:feeling).permit(:title, :description, :image, :category, :price, :sideeffects, :recommendedto, :care)
   end
 end
