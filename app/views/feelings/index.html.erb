@@ -1,45 +1,46 @@
-<%= render './partials/feelings-banner' %>
+
+  <%= render './partials/feelings-banner' %>
+
 <div class="ml-3 mr-3">
-
-<div class="filter">
-  <div class="col-5">
-    <div class="d-flex bd-highlight mb-3">
-      <div class="p-4 bd-highlight flex-grow-1">
-        <%= simple_form_for :search, url: feelings_path, method: 'get' do |f| %>
-          <%= f.input :category, collection: Feeling::CATEGORIES_FILTER, prompt: 'Select a category', selected: params.dig(:search, :category), label: false %>
-
-      </div>
-      <div class="p-4 bd-highlight">
-        <div class="glow-on-hover p-0" style="border: 1px solid #CED4D9">
-        <%= submit_tag "Apply filter", class: "btn" %>
+  <div class="filter">
+    <div class="col-5">
+      <div class="d-flex bd-highlight mb-3">
+        <div class="p-4 bd-highlight flex-grow-1">
+          <%= simple_form_for :search, url: feelings_path, method: 'get' do |f| %>
+            <%= f.input :category, collection: Feeling::CATEGORIES_FILTER, prompt: 'Select a category', selected: params.dig(:search, :category), label: false %>
         </div>
-      </div>
-        <% end %>
+        <div class="p-4 bd-highlight">
+          <div class="glow-on-hover p-0" style="border: 1px solid #CED4D9">
+          <%= submit_tag "Apply filter", class: "btn" %>
+          </div>
+        </div>
+          <% end %>
       </div>
     </div>
   </div>
-</div>
 
-<div class="cards">
-  <% @feelings.each do |feeling| %>
-    <div class="card-product">
-      <%= link_to feeling_path(feeling) do %>
-        <div class="card card-feeling">
-        <% if feeling.image.attached? %>
-        <%= cl_image_tag feeling.image.key %>
-        <% else %>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+
+  <div class="cards">
+    <% @feelings.each do |feeling| %>
+      <div class="card-product">
+        <%= link_to feeling_path(feeling) do %>
+          <div class="card card-feeling">
+            <% if feeling.image.attached? %>
+            <%= cl_image_tag feeling.image.key %>
+            <% else %>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% end %>
+          <div class="card-info p-3">
+            <h2><%= feeling.title.capitalize %></h2>
+            <p><i class="fas fa-filter"></i> <%= feeling.category.capitalize %></p>
+            <p style="text-align: right">From <strong>€ <%= feeling.price %></strong> per day</p>
+            <% if feeling.user == current_user %>
+              <%= link_to 'Edit this feeling', edit_feeling_path(feeling) %>
+            <% end %>
+          </div>
+          </div>
         <% end %>
-        <div class="card-info p-3">
-          <h2><%= feeling.title.capitalize %></h2>
-          <p><small>Emotion Category:</small> <%= feeling.category.capitalize %></p>
-          <p style="text-align: right">From <strong>€ <%= feeling.price %></strong> per day</p>
-          <% if feeling.user == current_user %>
-            <%= link_to 'Edit this feeling', edit_feeling_path(feeling) %>
-          <% end %>
-        </div>
-        </div>
-      <% end %>
       </div>
-      <% end %>
+        <% end %>
     </div>
+</div>
