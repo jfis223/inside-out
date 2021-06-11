@@ -4,7 +4,7 @@
       <div class="col-6 pt-2"><h2><%= @feeling.title.capitalize %></h2>
       <p style="color: gray;">Feeling Details</p>
       </div>
-      <div class="col-6 pt-2 d-flex flex-column align-items-end justify-content-center"><h5 style="color: gray;">Category : <%= @feeling.category.capitalize %></h5>
+      <div class="col-6 pt-2 d-flex flex-column align-items-end justify-content-center"><h5 style="color: gray;"><i class="fas fa-filter"></i> <%= @feeling.category.capitalize %></h5>
       <div class="d-flex justify-content-end"><%= link_to 'Back to feelings list', feelings_path, class: "glow-on-hover"  %></div>
       </div>
   </div>
@@ -20,8 +20,14 @@
 <div class="container p-4">
   <div class="row align-items-center">
     <div class="col-12 col-lg-8 p-4">
-      <div class=""><p><%= @feeling.description %></p></div>
-      <h4>What they think about it :</h4>
+      <p><%= @feeling.description %></p>
+      <h5 style="color: gray;">Side effects could include</h5>
+      <p><%= @feeling.sideeffects %></p>
+      <h5 style="color: gray;">Do not mix it with</h5>
+      <p><%= @feeling.care %></p>
+      <h5 style="color: gray;">Recommended for</h5>
+      <p><%= @feeling.recommendedto %></p>
+      <h5 style="color: gray;">What our customers are saying</h5>
       <div class=""><ul class="list-unstyled"><% @feeling.reviews.each do |review| %>
         <li>
           <p>
@@ -36,9 +42,8 @@
     <div class="col-12 col-lg-4 p-3 mb-5 shadow-sm rounded-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'Background.jpg' %>)">
        <div class="price-card">
         <div class="d-flex flex-column align-items-end justify-content-center">
-          <p>Price per day:</p>
-          <p style="font-size: 20px; font-weight: bolder;"><%= @feeling.price %> €</p>
-          <p>Sold by: <%= @feeling.user.name %></p>
+          <p style="font-size: 20px; font-weight: bolder;"><%= @feeling.price %> € per day</p>
+          <p>Submitted by <%= @feeling.user.name.capitalize %></p>
         </div>
         <div>
           <% if @feeling.availibility %>
@@ -50,7 +55,7 @@
           <% if policy(@feeling).edit? %>
             <div id="button-details"><%= link_to 'Edit this feeling', edit_feeling_path(@feeling), class: "glow-on-hover" %></div>
           <% end %>
-          <div id="button-details"><%= link_to 'How was it?', new_feeling_review_path(@feeling), class: "glow-on-hover" %></div>
+          <div id="button-details"><%= link_to 'Rate your experience', new_feeling_review_path(@feeling), class: "glow-on-hover" %></div>
         </div>
       </div>
     </div>
