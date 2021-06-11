@@ -7,6 +7,9 @@
     <%= f.input :title, placeholder: 'Title' %>
     <%= f.input :category, collection: Feeling::CATEGORIES %>
     <%= f.input :description, placeholder: 'Description' %>
+    <%= f.input :sideeffects, placeholder: 'Side Effects' %>
+    <%= f.input :recommendedto, placeholder: 'Recommended to' %>
+    <%= f.input :care, placeholder: 'Do not mix it with' %>
     <%= f.input :price, placeholder: 'Price' %>
     <%= f.input :image, as: :file %>
 
