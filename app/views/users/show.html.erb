@@ -1,0 +1,86 @@
+<div class="container">
+
+  <div class="row justify-content-around">
+
+  <div class="col-4">
+  <div class="profile-card mt-4">
+  <p class="title d-flex justify-content-center">My profile</p>
+    <div class="d-flex align-items-center m-3 flex-column">
+      <%= image_tag "profile_pic.png", alt: "profile_pic", class: "avatar-large" %>
+      <h4 class="text-center">Welcome back,<br> <strong><%= @user.name %></strong> </h4>
+      <p class="mt-2"><i class="far fa-envelope mr-1"></i><%= @user.email %></p>
+
+      <%= link_to edit_user_registration_path(current_user), class: "glow-on-hover profile-glow d-flex justify-content-center align-items-center" do %>
+        <i class="fas fa-user-edit mr-1"></i>
+        <p class="m-0">Edit Profile</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+  <div class="col-8">
+    <div>
+      <h3 class="d-flex justify-content-center m-5">My list of feelings</h3>
+      <div class="cards d-flex justify-content-center">
+        <% if !@user.feelings.present? %>
+          <p>You Have no feelings</p>
+        <% end %>
+        <% @user.feelings.each do |feeling| %>
+          <div class="card-product">
+            <%= link_to feeling_path(feeling) do %>
+              <div class="card card-feeling">
+                <% if feeling.image.attached? %>
+                <%= cl_image_tag feeling.image.key %>
+                <% else %>
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <% end %>
+              <div class="card-info p-3">
+                <h2><%= feeling.title.capitalize %></h2>
+                <p><small>Emotion Category:</small> <%= feeling.category.capitalize %></p>
+                <p style="text-align: right">From <strong>€ <%= feeling.price %></strong> per day</p>
+                <% if feeling.user == current_user %>
+                  <%= link_to 'Edit this feeling', edit_feeling_path(feeling) %>
+                <% end %>
+              </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="d-flex justify-content-center m-5">My booked feelings</h3>
+      <div class="cards d-flex justify-content-center">
+         <% if !@user.bookings.present? %>
+          <p>You Have no bookings</p>
+        <% end %>
+        <% @user.bookings.each do |booking| %>
+          <div class="card-product">
+            <%= link_to feeling_path(booking.feeling) do %>
+              <div class="card card-feeling">
+                <% if booking.feeling.image.attached? %>
+                <%= cl_image_tag booking.feeling.image.key %>
+                <% else %>
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <% end %>
+              <div class="card-info p-3">
+                <h2><%= booking.feeling.title.capitalize %></h2>
+                <p><small>Emotion Category:</small> <%= booking.feeling.category.capitalize %></p>
+                <p style="text-align: right">From <strong>€ <%= booking.feeling.price %></strong> per day</p>
+                <% if booking.feeling.user == current_user %>
+                <%= link_to 'Edit this feeling', edit_feeling_path(booking.feeling) %>
+                <% end %>
+              </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
