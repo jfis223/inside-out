@@ -1,9 +1,11 @@
 
   <div class="form">
-    <h1 class="text-center">Thank you <%= @booking.user.name %>, </h1>
-      <h2 class="text-center p-3"> your booking has been saved !</h2>
+    <h1 class="text-center">Thank you <%= @booking.user.name.capitalize %>! </h1>
+      <h2 class="text-center p-3"> Your booking has been confirmed!</h2>
     <div class="Bookin info">
+      <p class="text-center p-3"> You'll get some <%= @booking.feeling.title.downcase %></p>
       <p class="text-center p-3">From <%= @booking.check_in.day %>/<%= @booking.check_in.month %>/<%= @booking.check_in.year %> to <%= @booking.check_out.day %>/<%= @booking.check_out.month %>/<%= @booking.check_out.year %> </p>
+      <p class="text-center p-3"> Your grand total is <%= @booking.total_price %> € </p>
     </div>
   </div>
 

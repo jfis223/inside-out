@@ -1,6 +1,6 @@
 
 <div class="form">
-  <h2 style="text-align: center; margin: 20px;">Get some <%= @feeling.title %></h2>
+  <h2 style="text-align: center; margin: 20px;">Get some <%= @feeling.title.downcase %></h2>
 
     <p>Which dates would you like to receive this feeling?</p>
 
@@ -8,7 +8,7 @@
       <%= f.input :check_in, as: :date, placeholder: 'DD/MM/YYYY' %>
       <%= f.input :check_out, as: :date, placeholder: 'DD/MM/YYYY' %>
 
-  <p>Grand total: <%= @booking.total_price %></p>
+  <p><%= @feeling.price %> € per day</p>
 
   <div class="form-actions">
  <div class="row justify-content-end">

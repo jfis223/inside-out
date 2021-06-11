@@ -1,11 +1,13 @@
 
-<div class="form">
-<h1>Let us know how was your experience :</h1>
+<div class="form-review">
+<h5 style="color: gray;">Have you felt this before? Let us know your experience!</h5>
 <%= simple_form_for [@feeling, @review] do |f| %>
-  <%= f.input :content %>
+  <%= f.input :content,  label: "Your comment"%>
   <%= f.input :rating, collection: 0..5 %>
+  <div class="d-inline-flex bd-highlight ">
   <div class="glow-on-hover p-0" style="border: 1px solid #CED4D9">
-    <%= f.submit, class: "btn" %>
+    <%= f.button :submit %>
   </div>
+</div>
 <% end %>
 </div>
