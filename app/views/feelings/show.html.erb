@@ -20,6 +20,7 @@
 <div class="container p-4">
   <div class="row align-items-center">
     <div class="col-12 col-lg-8 p-4">
+
       <p><%= @feeling.description %></p>
       <h5 style="color: gray;">Side effects could include</h5>
       <p><%= @feeling.sideeffects %></p>
@@ -27,7 +28,13 @@
       <p><%= @feeling.care %></p>
       <h5 style="color: gray;">Recommended for</h5>
       <p><%= @feeling.recommendedto %></p>
-      <h5 style="color: gray;">What our customers are saying</h5>
+    
+      <% if @feeling.reviews.count == 0 %>
+        <h4>There's no reviews yet</h4>
+      <% else %>
+        <h4>What our customers are saying</h4>
+      <% end %>
+
       <div class=""><ul class="list-unstyled"><% @feeling.reviews.each do |review| %>
         <li>
           <p>
@@ -61,3 +68,5 @@
     </div>
   </div>
 </div>
+
+<%= render './partials/reviewform' %>
