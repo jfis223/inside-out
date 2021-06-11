@@ -11,6 +11,7 @@
 
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
       <% if user_signed_in? %>
+        <li><button class="dropdown-item" type="button"><%= link_to 'Go to my profile', user_path(current_user) %></button></li>
         <li><button class="dropdown-item" type="button"><%= link_to 'Sell a feeling', new_feeling_path %></button></li>
         <li><button class="dropdown-item" type="button"><%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you certain you want to log out ?' } %></button></li>
       <% else %>
